@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Do not edit directly, this file was auto-generated.
+-->
+<resources>
+  <color name="global_btn">#ff0065ff</color>
+  <color name="global_button_text">#ffebe8d8</color>
+  <color name="global_background">#ffffffff</color>
+</resources>

@@ -1,4 +1,4 @@
-import '../../../build/scss/_variables.scss';
+import '../../../build/css/_variable.css';
 import { PaletteOptions } from "@mui/material";
 
 export const BasicPalette: Partial<PaletteOptions> = {
@@ -165,7 +165,7 @@ export const paletteERP: PaletteOptions = {
     200: "#80DEEA",
     300: "#4DD0E1",
     light: "#26C6DA",
-    main: `var($sd-global-btn)`,
+    main: "#00B6CF",
     600: "#00B6CF",
     700: "#00ADC9",
     800: "#00A5C3",
@@ -263,7 +263,7 @@ export const paletteADC: PaletteOptions = {
     200: "#80DEEA",
     300: "#4DD0E1",
     light: "#26C6DA",
-    main: "#00BCD4",
+    main: 'var(--sd-global-btn)',
     600: "#00B6CF",
     700: "#00ADC9",
     800: "#00A5C3",
