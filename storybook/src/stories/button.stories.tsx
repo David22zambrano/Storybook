@@ -102,7 +102,7 @@ export const ButtonWhitIcon: Story = {
         Button Icon
       </Button>
       <Button size="large" variant="contained" startIcon={<Delete />}>
-        Button  Icon delete
+        Button  Icon 
       </Button>
     </Stack>
 
