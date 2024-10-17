@@ -96,13 +96,13 @@ export const ButtonWhitIcon: Story = {
     <Typography >Button size: small | medium | large </Typography>
     <Stack>
     <Button size="small" variant="contained" startIcon={<Delete />}>
-        Button with Icon
+        Button Icon
       </Button>
       <Button size="medium" variant="contained" startIcon={<Delete />}>
-        Button with Icon
+        Button Icon
       </Button>
       <Button size="large" variant="contained" startIcon={<Delete />}>
-        Button with Icon
+        Button  Icon delete
       </Button>
     </Stack>
 
