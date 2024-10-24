@@ -16,44 +16,48 @@ export interface DrawerComponentProperties {
   title: string;
   children: ReactNode;
   actions?: ReactNode;
-  showActions?: boolean;
-  anchor?: DrawerPosition;
-  anchorActions: "flex-end" | "flex-start";
   width: string;
+  color?: string;
+  backgroundColor?: string;
+  closeIconColor?: string,
+  headerColor?: string;
   open: boolean;
+  showActions?: boolean;
   onClose: () => void;
   sx?: SxProps;
+  sxContent?: SxProps;
   sxActions?: SxProps;
-  backgroundColor?: string;
-  color?: string;
-  headerColor?: string;
-  closeIcon?: string,
+  sxHeader?: SxProps;
+  anchor?: DrawerPosition;
+  anchorActions: "flex-end" | "flex-start";
 }
 
 
 export const DrawerComponent = ({
-  title,
-  backgroundColor,
-  color,
-  headerColor,
-  children,
-  actions,
-  showActions = false,
-  sxActions,
-  closeIcon,
-  anchor = "left",
-  anchorActions = "flex-end",
-  width,
   open,
   onClose,
+  title,
+  width,
+  children,
+  actions,
   sx,
+  sxHeader,
+  sxContent,
+  sxActions,
+  color,
+  backgroundColor,
+  closeIconColor,
+  headerColor,
+  anchor = "left",
+  anchorActions = "flex-end",
+  showActions = false,
 }: DrawerComponentProperties) => {
 
   const [stateActions, setActionsState] = useState(showActions);
 
   const handleDrawerActions = useCallback(() => {
-      setActionsState(true);
-    }, []);
+    setActionsState(true);
+  }, []);
 
   const paperSx: SxProps = borderStyles[anchor];
 
@@ -82,24 +86,31 @@ export const DrawerComponent = ({
           direction="row"
           py={1.5}
           px={1}
-          bgcolor={"primary.main" || headerColor}
+          sx={{
+            backgroundColor:  headerColor  || "secondary",
+            ...sxHeader
+          }}
         >
-          <Typography color={"background.paper" || color} variant="h6">
+          <Typography color={color || "background.paper"} variant="h6">
             {title}
           </Typography>
 
-          <IconButton onClick={onClose} size="small">
-            <Close sx={{ color: "background.paper" || closeIcon }}
-              fontSize="inherit" />
+          <IconButton onClick={onClose} size="small" sx={{
+            color: closeIconColor || "brackground.paper"
+          }}>
+            <Close
+              fontSize="inherit"
+            />
           </IconButton>
         </Stack>
 
         <Stack
           sx={{
-            backgroundColor: backgroundColor,
+            backgroundColor: backgroundColor || "background.paper",
+            ...sxContent
           }}
-          py={1.5}
-          px={1}
+          py={2}
+          px={1.5}
           overflow="auto"
           flex={1}
           onClick={handleDrawerActions}
@@ -124,3 +135,4 @@ export const DrawerComponent = ({
   );
 };
 export { DrawerComponent as Drawer };
+
