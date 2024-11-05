@@ -15,7 +15,7 @@ export interface MultiSelectProps {
 
 export const MultiSelect = ({ topPanel, acciones, open, onClose, items, filterFunction, getItemLabel, anchorEl, dense }: MultiSelectProps) => {
 
-    const [filtroTexto, setFiltroTexto] = useState(" ");
+    const [filtroTexto, setFiltroTexto] = useState("");
     const [itemsSeleccionados, setItemsSeleccionados] = useState<any[]>([]);
 
     const itemsFiltrados = filterFunction(items, filtroTexto);

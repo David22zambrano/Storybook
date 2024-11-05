@@ -2,7 +2,7 @@
 import React, {  useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeProvider, ToggleButtonGroup, ToggleButton } from "@mui/material";
-import {  FormatBold } from "@mui/icons-material";
+import { Add } from "@mui/icons-material";
 import { SincoTheme } from "../Theme";
 
 export default {
@@ -78,9 +78,9 @@ export const ToggleButtonStorie: Story = {
         onChange={handleChange}
         aria-label="Platform"
       >
-        <ToggleButton value="web">{children ? <FormatBold fontSize="small" /> : "Web"}</ToggleButton>
-        <ToggleButton value="android">{children ? <FormatBold fontSize="small" /> : "Android"} </ToggleButton>
-        <ToggleButton value="ios">{children ? <FormatBold fontSize="small" /> : "Android"}</ToggleButton>
+        <ToggleButton value="web">{children ? <Add fontSize="small" /> : "Web"}</ToggleButton>
+        <ToggleButton value="android">{children ? <Add fontSize="small" /> : "Android"} </ToggleButton>
+        <ToggleButton value="ios">{children ? <Add fontSize="small" /> : "Android"}</ToggleButton>
       </ToggleButtonGroup>
     );
   },

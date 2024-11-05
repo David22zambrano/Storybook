@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import "./Generales";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider, Popper, Box } from "@mui/material";
+import { ThemeProvider, Popper, Box, Typography } from "@mui/material";
 import { SincoTheme } from "../Theme";
 import { useState } from "react";
 
@@ -52,7 +52,7 @@ export const PopperStorie: Story = {
       <div>
         <Popper id={id} open={true} anchorEl={anchorEl}>
           <Box sx={{ border: 1, p: 1, bgcolor: "background.paper" }}>
-            The content of the Popper.
+            <Typography color="text.primary" variant="h6">The content of the Popper.</Typography>
           </Box>
         </Popper>
       </div>

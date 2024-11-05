@@ -83,7 +83,7 @@ export const ChipStory: Story = {
         label={label}
         color={color}
         icon={icon ? <Delete fontSize="small" /> : undefined}
-        avatar={avatar ? <Avatar sx={{ width: 18, height: 18 }}>OP</Avatar> : undefined}
+        avatar={avatar ? <Avatar >OP</Avatar> : undefined}
         variant={variant}
         disabled={disabled}
         onDelete={() => { }}
@@ -118,7 +118,7 @@ export const ChipSimple: Story = {
 };
 
 export const ChipWithICon: Story = {
-  name: "Chip ",
+  name: "Chip with icon",
   args: {
     color: "primary",
     size: "medium",
@@ -224,7 +224,7 @@ export const ChipClickeable: Story = {
 };
 
 export const ChipClickableDeletable: Story = {
-  name: "Chip ",
+  name: "Chip clickeable/deletable",
   args: {
     color: "primary",
     size: "medium",

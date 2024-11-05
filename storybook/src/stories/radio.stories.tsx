@@ -90,7 +90,7 @@ export const RadioStorieFormControl: Story = {
   },
   render: (args) => (
     <FormControl>
-      <FormLabel>Exmaple</FormLabel>
+      <FormLabel>Example</FormLabel>
       <RadioGroup row>
         <FormControlLabel control={<Radio {...args} />} label="Female" />
         <FormControlLabel control={<Radio {...args} />} label="Male" />

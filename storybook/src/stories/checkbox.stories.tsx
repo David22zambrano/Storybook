@@ -3,6 +3,7 @@ import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import "./Generales";
 import { SincoTheme } from "../Theme";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Checkbox",
@@ -19,9 +20,9 @@ const meta: Meta<typeof Checkbox> = {
     layout: "centered",
   },
   argTypes: {
-    checked:{
+    checked: {
       description: "Si `true`, el componente está marcado.",
-      control:"boolean"
+      control: "boolean"
     },
     size: {
       description: "El tamaño del componente `small `es equivalente al estilo de casilla de verificación densa.",
@@ -48,8 +49,8 @@ export const CheckboxStories: Story = {
   args: {
     size: "medium",
     color: "primary",
-    disabled: false, 
-    checked:false
+    disabled: false,
+    checked: false
   },
   render: (args) => <Checkbox {...args} />,
 };
@@ -59,7 +60,7 @@ export const CheckboxStoriesFormControl: Story = {
   args: {
     size: "medium",
     color: "primary",
-    disabled: false, 
+    disabled: false,
   },
   render: (args) => (
     <FormGroup>
@@ -73,6 +74,23 @@ export const CheckboxStoriesFormControl: Story = {
         control={<Checkbox {...args} disabled />}
         label="Disabled"
       />
+    </FormGroup>
+  ),
+};
+
+export const CheckboxCustomizable: Story = {
+  name: "checkbox customizable",
+  args: {
+    size: "medium",
+    color: "primary",
+    disabled: false,
+  },
+  render: () => (
+    <FormGroup>
+      <FormControlLabel control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} />} label="Label" />
+      <FormControlLabel control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} />} label="Label" />
+      <FormControlLabel control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} />} label="Label" />
+      <FormControlLabel control={<Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite />} />} label="Label" />
     </FormGroup>
   ),
 };

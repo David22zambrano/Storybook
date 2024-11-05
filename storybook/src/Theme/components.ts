@@ -1,6 +1,6 @@
 import React from "react";
-import type {} from "@mui/x-data-grid/themeAugmentation";
-import { Components, Theme } from "@mui/material";
+import type { } from "@mui/x-data-grid/themeAugmentation";
+import { Components, Theme, chipClasses } from "@mui/material";
 import {
   InfoRounded,
   CheckCircleRounded,
@@ -176,9 +176,9 @@ export const components: Components<Theme> = {
         fontSize: 13,
         lineHeight: 1.5,
         letterSpacing: 0.17,
-        
+
       },
-      
+
       row: {
         variants: [
           {
@@ -335,7 +335,19 @@ export const components: Components<Theme> = {
   },
   MuiDialog: {
     styleOverrides: {
-      root: {
+      root: ({ theme }) => ({
+        [theme.breakpoints.only('xs')]: {
+          width: "444px",
+        },
+        [theme.breakpoints.only('sm')]: {
+          width: "600px",
+        },
+        [theme.breakpoints.only('md')]: {
+          width: "900px",
+        },
+        [theme.breakpoints.only('lg')]: {
+          width: "1200px",
+        },
         ".MuiPaper-elevation": {
           boxShadow:
             "0px 1px 5px rgba(24, 39, 75, 0.12), 0px 2px 2px rgba(24, 39, 75, 0.14), 0px 3px 1px -2px rgba(24, 39, 75, 0.2) ",
@@ -344,7 +356,7 @@ export const components: Components<Theme> = {
           backgroundColor: "#f0f0f099",
           backdropFilter: "blur(2px) !important",
         },
-      },
+      }),
     },
   },
   MuiDialogTitle: {
@@ -422,6 +434,40 @@ export const components: Components<Theme> = {
       icon: {
         opacity: "70%",
       },
+      deleteIconSmall: {
+        height: 16,
+        width: 16,
+      },
+      deleteIconMedium: {
+        height: 20,
+        width: 20,
+      },
+      sizeSmall: {
+        height: 16,
+      },
+      sizeMedium: {
+        height: 20,
+      },
+      avatarSmall: {
+        height: 18,
+        width: 18,
+        // [`&.MuiChip-root.`]: {
+        //   height: "20px !important",
+        //   width: "20px !important",
+        // },
+        // ".MuiChip-root.MuiChip-sizeSmall":{
+        //   height: "20px !important",
+        //   width: "20px !important",
+        // },
+      },
+      avatarMedium: {
+        height: 18,
+        width: 18,
+      },
+      colorDefault: ({ theme }) => ({
+        backgroundColor: theme.palette.default.main,
+        color: theme.palette.default.contrastText,
+      }),
       deleteIcon: ({ theme }) => ({
         variants: [
           {
@@ -454,36 +500,15 @@ export const components: Components<Theme> = {
             }
           },
           {
-            props: { variant: "outlined", color: "default" },
+            props: { variant: "filled", color: "default" },
             style: {
-              color: theme.palette.action.active,
-              opacity: "54%",
-              ":hover": {
-                color: theme.palette.action.active,
-                opacity: "54%",
-              }
-            }
-          }
+              color: theme.palette.default.contrastText,
+              opacity: "30%"
+            },
+          },
         ]
       }),
-      deleteIconSmall: {
-        height: 16,
-        width: 16,
-      },
-      deleteIconMedium: {
-        height: 20,
-        width: 20,
-      },
-      sizeSmall: {
-        height: 16,
-      },
-      sizeMedium: {
-        height: 22,
-      },
-      avatarMedium: {
-        height: 18,
-        width: 18,
-      },
+
       avatar: ({ theme }) => ({
         lineHeight: 1.8,
         variants: [
@@ -533,9 +558,15 @@ export const components: Components<Theme> = {
           {
             props: { variant: "outlined", color: "default" },
             style: {
-              backgroundColor: theme.palette.action.active,
+              backgroundColor: theme.palette.grey[400],
               color: theme.palette.background.paper,
-              opacity: "54%",
+            },
+          },
+          {
+            props: { variant: "filled", color: "default" },
+            style: {
+              backgroundColor: theme.palette.default.contrastText,
+              color: theme.palette.background.paper,
             },
           },
         ],
@@ -543,13 +574,51 @@ export const components: Components<Theme> = {
       label: ({ theme }) => ({
         ...theme.typography.caption,
       }),
-      filled: ({ theme }) => ({
-        color: theme.palette.background.paper,
-      }),
       root: ({ theme }) => ({
         height: "inherit",
         borderRadius: 4,
         variants: [
+          {
+            props: { variant: "outlined", color: "default" },
+            style: {
+              border: `1px solid ${theme.palette.grey[400]}`,
+              backgroundColor: "transparent !important",
+              color: theme.palette.default.contrastText,
+              ":hover": {
+                backgroundColor: theme.palette.default.main
+              }
+            },
+          },
+          {
+            props: { variant: "standard", color: "default" },
+            style: {
+              backgroundColor: theme.palette.default.main,
+              color: theme.palette.default.contrastText,
+              ":hover": {
+                backgroundColor: theme.palette.default.dark
+              }
+            },
+          },
+          {
+            props: { variant: "filled", color: "default" },
+            style: {
+              backgroundColor: theme.palette.grey[50],
+              color: theme.palette.default.contrastText,
+              ":hover": {
+                backgroundColor: theme.palette.grey[100],
+              }
+            },
+          },
+          {
+            props: { variant: "filled", color: "default" },
+            style: {
+              backgroundColor: theme.palette.grey[50],
+              color: theme.palette.default.contrastText,
+              ":hover": {
+                backgroundColor: theme.palette.grey[100],
+              }
+            },
+          },
           {
             props: { variant: "standard", avatar: true },
             style: {
@@ -925,13 +994,13 @@ export const components: Components<Theme> = {
           transform: "none",
         },
         "&.MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall":
-          {
-            paddingBlock: 3.5,
-            paddingRight: 14,
-            ".MuiIconButton-sizeSmall .MuiAutocomplete-popupIndicator": {
-              padding: 5,
-            },
+        {
+          paddingBlock: 3.5,
+          paddingRight: 14,
+          ".MuiIconButton-sizeSmall .MuiAutocomplete-popupIndicator": {
+            padding: 5,
           },
+        },
       },
     },
   },
@@ -951,15 +1020,15 @@ export const components: Components<Theme> = {
       },
       filled: {
         "&.MuiInputLabel-filled.MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)":
-          {
-            transform: "translate(12px,9px) scale(1)",
-          },
+        {
+          transform: "translate(12px,9px) scale(1)",
+        },
       },
       standard: {
         "&.MuiInputLabel-standard.MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)":
-          {
-            transform: "translate(0, 15px) scale(1)",
-          },
+        {
+          transform: "translate(0, 15px) scale(1)",
+        },
       },
       outlined: {
         "&.MuiInputLabel-outlined.MuiInputLabel-sizeSmall ": {
@@ -1070,55 +1139,84 @@ export const components: Components<Theme> = {
       },
     ],
   },
+  // MuiList: {
+  //   defaultProps: {
+  //     dense: false,
+  //   },
+  //   styleOverrides: {
+  //     root: {},
+  //     dense: {},
+  //   },
+  // },
+
+  // MuiListItemText: {
+  //   styleOverrides: {
+  //     multiline: {},
+  //     root: {
+  //       marginBlock: " 4.4px ",
+  //       lineHeight: "20px",
+  //       letterSpacing: 0.17,
+  //     },
+  //     dense: {
+  //       lineHeight: "14.3px",
+  //       letterSpacing: 0.15,
+  //     },
+  //   },
+  // },
+
+  // MuiListItem: {
+  //   styleOverrides: {
+  //     root: {
+  //       padding: "8px 16px 8px 16px",
+  //     },
+  //     dense: {
+  //       padding: "4px 16px 4px 16px",
+  //     },
+  //   },
+  // },
+
+  // MuiListItemButton: {
+  //   styleOverrides: {
+  //     dense: {
+  //       marginBlock: 0,
+  //       padding: 0,
+  //     },
+  //     root: {
+  //       marginBlock: 0,
+  //       padding: 0,
+  //     },
+  //   },
+  // },
   MuiList: {
     defaultProps: {
       dense: false,
     },
     styleOverrides: {
-      root: {},
-      dense: {},
-    },
-  },
-
-  MuiListItemText: {
-    styleOverrides: {
-      multiline: {},
-      root: {
-        marginBlock: " 4.4px ",
-        lineHeight: "20px",
-        letterSpacing: 0.17,
+      padding: {
+        ".MuiListItem-padding": {
+          paddingBlock: 1,
+        },
       },
       dense: {
-        lineHeight: "14.3px",
-        letterSpacing: 0.15,
+        ".MuiListItem-dense": {
+          padding: "0.25px 0px 0.25px 16px",
+        },
       },
     },
   },
-
-  MuiListItem: {
-    styleOverrides: {
-      root: {
-        padding: "8px 16px 8px 16px",
-      },
-      dense: {
-        padding: "4px 16px 4px 16px",
-      },
-    },
-  },
-
   MuiListItemButton: {
     styleOverrides: {
       dense: {
-        marginBlock: 0,
-        padding: 0,
+        padding: "4px 16px 4px 16px ",
       },
       root: {
-        marginBlock: 0,
-        padding: 0,
+        padding: "8.21px 16px",
+        ".MuiListItemText-multiline": {
+          marginBlock: "4px",
+        },
       },
     },
   },
-
   MuiMenuItem: {
     styleOverrides: {
       dense: {

@@ -35,6 +35,16 @@ const meta: Meta<typeof Dialog> = {
     onClose: {
       description: "`function(event: object, reason: string) => void`",
     },
+    fullWidth: {
+      description: "Si es `true`. Aumenta su ancho hasta el maxWidth definido.",
+      control: "boolean",
+      options: [true, false]
+    },
+    maxWidth: {
+      description: "Determina el ancho máximo del cuadro de diálogo. El ancho del cuadro de diálogo aumenta con el tamaño de la pantalla. Establezca en falso para desactivar el ancho máximo.",
+      control: "radio",
+      options: ["xs", "sm", "md", "xl"]
+    }
   },
 };
 
@@ -45,8 +55,10 @@ export const DialogStorie: Story = {
   name: "Dialog",
   args: {
     open: true,
+    fullWidth: true,
+    maxWidth: "xs"
   },
-  render: () => {
+  render: ({maxWidth }) => {
     const [open, setOpen] = useState(false);
 
     const controlDialog = useCallback(() => {
@@ -55,7 +67,7 @@ export const DialogStorie: Story = {
     return (
       <>
         <Button onClick={controlDialog}>Abrir dialog</Button>
-        <Dialog open={open} onClose={controlDialog}>
+        <Dialog fullWidth open={open} onClose={controlDialog} maxWidth={maxWidth}>
           <DialogTitle>Title dialog</DialogTitle>
           <DialogContent>
             <Typography variant="body2" color="text.primary">
@@ -64,10 +76,10 @@ export const DialogStorie: Story = {
           </DialogContent>
           <DialogActions>
             <Stack flexDirection={"row"} gap={1}>
-              <Button color="primary" variant="text">
+              <Button onClick={controlDialog} color="primary" variant="text">
                 Cancelar
               </Button>
-              <Button color="primary" variant="contained">
+              <Button onClick={controlDialog} color="primary" variant="contained">
                 Guardar
               </Button>
             </Stack>

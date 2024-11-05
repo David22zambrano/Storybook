@@ -53,7 +53,7 @@ const meta: Meta<typeof Radio> = {
 export default meta;
 type Story = StoryObj<typeof Radio>;
 export const RadioButtonsGroup: Story = {
-  name: "Radio-ButtonsGroup",
+  name: "Radio button group",
   args: {
     size: "medium",
     color: "primary",

@@ -5,6 +5,8 @@ import {
   Switch,
   FormGroup,
   FormControlLabel,
+  FormLabel,
+  FormControl,
 } from "@mui/material";
 import { SincoTheme } from "../Theme";
 
@@ -50,13 +52,8 @@ const meta: Meta<typeof Switch> = {
       control: "boolean",
     },
     title: {
-      description:"El contenido del título",
+      description: "El contenido del título",
       control: "text",
-    },
-    edge:{
-      description:"Si se proporciona, utiliza un margen negativo para contrarrestar el relleno de un lado ",
-      control: "radio",
-      options: ["end", "start"],
     },
   },
 };
@@ -64,18 +61,17 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
-export const button: Story = {
-  name: "switch",
+export const SwitchStory: Story = {
+  name: "Switch",
   args: {
     color: "primary",
     size: "small",
     disabled: false,
     checked: false,
     title: "text",
-    edge: "start",
-    
+
   },
-  render: ({ color, size, disabled, checked, title,edge  }) => (
+  render: ({ color, size, disabled, checked, title, edge }) => (
     <FormGroup>
       <FormControlLabel
         control={
@@ -85,12 +81,54 @@ export const button: Story = {
             disabled={disabled}
             checked={checked}
             title={title}
-            edge={edge}
-            
           />
         }
         label={title}
       />
     </FormGroup>
+  ),
+};
+
+export const SwitchLabelPlacement: Story = {
+  name: "Switch labelPlacement",
+  args: {
+    color: "primary",
+    size: "small",
+    disabled: false,
+    checked: false,
+    title: "text",
+
+  },
+  render: () => (
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Label placement</FormLabel>
+      <FormGroup aria-label="position" row>
+        <FormControlLabel
+          value="end"
+          control={<Switch color="primary" />}
+          label="top"
+          labelPlacement="top"
+        />
+        <FormControlLabel
+          value="bottom"
+          control={<Switch color="primary" />}
+          label="Bottom"
+          labelPlacement="bottom"
+        />
+        <FormControlLabel
+          value="end"
+          control={<Switch color="primary" />}
+          label="End"
+          labelPlacement="end"
+        />
+        <FormControlLabel
+          value="end"
+          control={<Switch color="primary" />}
+          label="start"
+          labelPlacement="start"
+        />
+
+      </FormGroup>
+    </FormControl>
   ),
 };

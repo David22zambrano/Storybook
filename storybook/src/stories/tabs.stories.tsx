@@ -1,8 +1,9 @@
 import "./Generales";
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider, Tab, Tabs } from "@mui/material";
+import { ThemeProvider, Tab, Tabs, Badge, Box } from "@mui/material";
 import { Phone } from "@mui/icons-material";
 import { SincoTheme } from "../Theme";
+import { useState } from "react";
 
 const meta: Meta<typeof Tab> = {
   title: "Components/Tabs",
@@ -32,7 +33,7 @@ const meta: Meta<typeof Tab> = {
       control: "text",
     },
     iconPosition: {
-      description:"La posición del icono con respecto a la etiqueta.",
+      description: "La posición del icono con respecto a la etiqueta.",
       control: "radio",
       options: ["start", "top", "end", "bottom"],
     },
@@ -73,6 +74,40 @@ export const TabExample: Story = {
     </Tabs>
   ),
 };
+export const TabWithBadge: Story = {
+  name: "Tab width badge",
+  render: ({ disabled, icon, iconPosition }) => {
+
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+      setValue(newValue);
+    };
+
+    return (
+      <Tabs value={value} centered onChange={handleChange} >
+        <Tab
+          iconPosition={iconPosition}
+          disabled={disabled}
+          icon={icon ? <Phone fontSize="medium" /> : undefined}
+          label={
+            // "Recent"
+            <Box display="flex" alignItems="center" justifyContent="center">
+              Recent
+              <Badge color="success" variant="dot" sx={{ pr: 1 }} />
+            </Box>
+            // <Badge color="success" variant="dot" sx={{ top: "50%"}}>
+            //   RECENTS
+            // </Badge>
+          } />
+        <Tab label="Item two" />
+        <Tab label="Item Three" />
+      </Tabs>
+    )
+
+  },
+};
+
 export const TabVertical: Story = {
   name: "Tab vertical",
   render: () => (
