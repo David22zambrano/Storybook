@@ -56,7 +56,7 @@ export const DialogStorie: Story = {
   args: {
     open: true,
     fullWidth: true,
-    maxWidth: "xs"
+    maxWidth: "xl"
   },
   render: ({maxWidth }) => {
     const [open, setOpen] = useState(false);
@@ -76,10 +76,10 @@ export const DialogStorie: Story = {
           </DialogContent>
           <DialogActions>
             <Stack flexDirection={"row"} gap={1}>
-              <Button onClick={controlDialog} color="primary" variant="text">
+              <Button size="small" onClick={controlDialog} color="primary" variant="text">
                 Cancelar
               </Button>
-              <Button onClick={controlDialog} color="primary" variant="contained">
+              <Button size="small" onClick={controlDialog} color="primary" variant="contained">
                 Guardar
               </Button>
             </Stack>

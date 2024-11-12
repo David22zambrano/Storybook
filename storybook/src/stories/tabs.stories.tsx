@@ -110,11 +110,19 @@ export const TabWithBadge: Story = {
 
 export const TabVertical: Story = {
   name: "Tab vertical",
-  render: () => (
-    <Tabs value={1} orientation="vertical" centered>
-      <Tab label="RECENTS" />
+  render: () => {
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+      setValue(newValue);
+    };
+
+    return (
+          
+    <Tabs value={value} onChange={handleChange} orientation="vertical" centered>
+      <Tab label="Item one" />
       <Tab label="Item Two" />
       <Tab label="Item Three" />
     </Tabs>
-  ),
+)},
 };

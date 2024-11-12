@@ -22,7 +22,7 @@ const meta: Meta<typeof Checkbox> = {
   argTypes: {
     checked: {
       description: "Si `true`, el componente está marcado.",
-      control: "boolean"
+      // control: "boolean"
     },
     size: {
       description: "El tamaño del componente `small `es equivalente al estilo de casilla de verificación densa.",
@@ -47,10 +47,7 @@ type Story = StoryObj<typeof Checkbox>;
 export const CheckboxStories: Story = {
   name: "checkbox",
   args: {
-    size: "medium",
-    color: "primary",
-    disabled: false,
-    checked: false
+
   },
   render: (args) => <Checkbox {...args} />,
 };

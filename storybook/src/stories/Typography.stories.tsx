@@ -87,7 +87,7 @@ export const TypographyStorie: Story = {
 
 export const Typographys: Story = {
   name: "Typographys",
-  render: (props) => {
+  render: () => {
     const Typographys = [
       { variant: "h1" },
       { variant: "h2" },
@@ -107,7 +107,7 @@ export const Typographys: Story = {
     return (
       <Stack>
         {Typographys.map((e, index) => (
-          <Typography key={index} color="textPrimary" variant={props.variant}>
+          <Typography key={index} color="textPrimary" variant={`${e.variant}`}>
             Ejemplo tipografia {e.variant}
           </Typography>
         ))}

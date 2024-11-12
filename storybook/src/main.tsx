@@ -9,5 +9,5 @@ createRoot(document.getElementById('root')!).render(
     <ThemeProvider theme={SincoTheme}>
       <App />
     </ThemeProvider>
-  </StrictMode>,
+  </StrictMode>
 )

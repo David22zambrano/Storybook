@@ -11,10 +11,24 @@ import {
 export const components: Components<Theme> = {
   MuiSelect: {
     styleOverrides: {
+      standard: {
+        // "&.MuiFormLabel-root.MuiInputLabel-root":{
+        //   left: "-9px"
+        // }
+      },
+      iconFilled: {
+        "&.MuiSelect-iconFilled.MuiSvgIcon-root": {
+          top: "calc(50% - .1em)",
+        }
+      },
+      iconOutlined: {
+        "&.MuiSelect-iconOutlined.MuiSvgIcon-root": {
+          top: "calc(50% - .3em)",
+        }
+      },
       icon: {
         width: 16,
         height: 16,
-        top: "calc(50% - .4em)",
       },
       root: {
         fontSize: 13,
@@ -22,6 +36,7 @@ export const components: Components<Theme> = {
         fontWeight: 400,
         letterSpacing: "0.15px",
         lineHeight: "19px",
+
       },
     },
   },
@@ -449,16 +464,8 @@ export const components: Components<Theme> = {
         height: 20,
       },
       avatarSmall: {
-        height: 18,
-        width: 18,
-        // [`&.MuiChip-root.`]: {
-        //   height: "20px !important",
-        //   width: "20px !important",
-        // },
-        // ".MuiChip-root.MuiChip-sizeSmall":{
-        //   height: "20px !important",
-        //   width: "20px !important",
-        // },
+        height: 14,
+        width: 14,
       },
       avatarMedium: {
         height: 18,
@@ -946,6 +953,7 @@ export const components: Components<Theme> = {
       sizeSmall: {
         height: 38,
       },
+
     },
   },
   MuiInputBase: {
@@ -964,11 +972,11 @@ export const components: Components<Theme> = {
           paddingBlock: 14,
         },
         ".MuiFilledInput-input.MuiInputBase-inputSizeSmall": {
-          padding: "0 4px !important",
+          // padding: "0 4px !important",
         },
         ".MuiFilledInput-input": {
           paddingTop: 22,
-          paddingBottom: 6,
+          paddingBottom: 8,
         },
       },
     },
@@ -980,6 +988,7 @@ export const components: Components<Theme> = {
       },
     },
   },
+
   MuiAutocomplete: {
     defaultProps: {
       size: "small",
@@ -1006,9 +1015,9 @@ export const components: Components<Theme> = {
   },
   MuiInputLabel: {
     styleOverrides: {
-      asterisk: {
-        color: "#D14343",
-      },
+      asterisk: ({ theme }) => ({
+        color: theme.palette.error.main,
+      }),
       root: {
         display: "flex",
         gap: ".2rem",
@@ -1021,14 +1030,23 @@ export const components: Components<Theme> = {
       filled: {
         "&.MuiInputLabel-filled.MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)":
         {
-          transform: "translate(12px,9px) scale(1)",
+          transform: "translate(12px,15px) scale(1)",
+        },
+        "&.MuiInputLabel-filled.MuiInputLabel-sizeMedium:not(.MuiInputLabel-shrink)":
+        {
+          transform: "translate(12px,19px) scale(1)",
         },
       },
       standard: {
         "&.MuiInputLabel-standard.MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)":
         {
-          transform: "translate(0, 15px) scale(1)",
+          transform: "translate(0, 12px) scale(1)",
         },
+        "&.MuiInputLabel-standard.MuiInputLabel-sizeMedium:not(.MuiInputLabel-shrink)":
+        {
+          transform: "translate(0, 12px) scale(1)",
+        },
+
       },
       outlined: {
         "&.MuiInputLabel-outlined.MuiInputLabel-sizeSmall ": {
@@ -1139,54 +1157,6 @@ export const components: Components<Theme> = {
       },
     ],
   },
-  // MuiList: {
-  //   defaultProps: {
-  //     dense: false,
-  //   },
-  //   styleOverrides: {
-  //     root: {},
-  //     dense: {},
-  //   },
-  // },
-
-  // MuiListItemText: {
-  //   styleOverrides: {
-  //     multiline: {},
-  //     root: {
-  //       marginBlock: " 4.4px ",
-  //       lineHeight: "20px",
-  //       letterSpacing: 0.17,
-  //     },
-  //     dense: {
-  //       lineHeight: "14.3px",
-  //       letterSpacing: 0.15,
-  //     },
-  //   },
-  // },
-
-  // MuiListItem: {
-  //   styleOverrides: {
-  //     root: {
-  //       padding: "8px 16px 8px 16px",
-  //     },
-  //     dense: {
-  //       padding: "4px 16px 4px 16px",
-  //     },
-  //   },
-  // },
-
-  // MuiListItemButton: {
-  //   styleOverrides: {
-  //     dense: {
-  //       marginBlock: 0,
-  //       padding: 0,
-  //     },
-  //     root: {
-  //       marginBlock: 0,
-  //       padding: 0,
-  //     },
-  //   },
-  // },
   MuiList: {
     defaultProps: {
       dense: false,

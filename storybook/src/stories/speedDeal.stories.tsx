@@ -22,7 +22,6 @@ const meta: Meta<typeof SpeedDial> = {
     },
     icon: {
       description: "El ícono que se mostrará en la fábrica SpeedDial. ",
-      control: "boolean",
     },
     direction: {
       description: "La dirección en la que se abren las acciones en relación con el botón de acción flotante.",
@@ -46,14 +45,13 @@ export const SpeedDialStory: Story = {
   name: "SpeedDial",
   args: {
     open: true,
-    icon: true,
     direction: "up",
   },
   render: (args) => (
     <Box sx={{ height: 320, transform: "translateZ(0px)", flexGrow: 1 }}>
       <SpeedDial
         ariaLabel="SpeedDial basic example"
-        icon={args.icon ? <SpeedDialIcon /> : <></>}
+        icon={<SpeedDialIcon />}
         open={args.open}
         direction={args.direction}
       >

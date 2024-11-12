@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar, ThemeProvider, Chip } from "@mui/material";
-import { Add, Delete } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 import { SincoTheme } from "../Theme";
 import "./Generales";
 

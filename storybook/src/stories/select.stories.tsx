@@ -33,7 +33,7 @@ const meta: Meta<typeof Select> = {
       options: ["filled", "outlined", "standard"],
     },
     size: {
-      description:"El tamaño del componente.",
+      description: "El tamaño del componente.",
       control: "radio",
       options: ["small", "medium"],
     },
@@ -59,7 +59,7 @@ const meta: Meta<typeof Select> = {
       ],
     },
     disabled: {
-      description:"Si `true`, el componente está disabled.",
+      description: "Si `true`, el componente está disabled.",
       control: "boolean",
     },
   },
@@ -78,27 +78,21 @@ export const button: Story = {
     color: "primary",
     disabled: false,
   },
-  render: ({ variant, size, label, error, color, disabled }) => {
+  // { variant, size, label, error, color, disabled }
+  render: () => {
     const [age, setAge] = useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
       setAge(event.target.value as string);
     };
     return (
-      <Stack flexDirection={"row"} width={200} gap={1}>
-
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Input label</InputLabel>
+      <Stack  width={200} gap={1}>
+        <FormControl fullWidth variant='filled'>
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
           <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            variant={variant}
-            size={size}
-            error={error}
-            color={color}
-            disabled={disabled}
-            label={age}
+             variant="standard"
             value={age}
+            label="Age"
             onChange={handleChange}
           >
             <MenuItem value={10}>Ten</MenuItem>
@@ -106,6 +100,35 @@ export const button: Story = {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            variant="outlined"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            variant="filled"
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+
       </Stack>
     )
   },

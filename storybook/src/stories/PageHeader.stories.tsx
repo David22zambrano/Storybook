@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, IconButton, ThemeProvider } from "@mui/material";
+import { Box, Button, IconButton, ThemeProvider } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import { SincoTheme } from "../Theme";
 import { PageHeader } from "./pageHeader";
@@ -48,22 +48,25 @@ export const PageHeaderExmaple: Story = {
   name: "PageHeader",
   args: {
     fixed: false,
-    title: "Title",
+    title: "Titulo",
     subtitle: "Subtitle",
     actions: <Button size="small">Actions</Button>,
     buttonBack: false,
   },
   render: ({ fixed, title, subtitle, buttonBack, actions }) => (
-    <PageHeader
-      fixed={fixed}
-      subtitle={subtitle}
-      title={title}
-      actions={ actions ? <Button size="small">Actions</Button> : null }
-      buttonBack={
-        buttonBack
-          ? <IconButton size="small" color="primary"> <ArrowBack fontSize="small" /> </IconButton>
-          : null
-      }
-    ></PageHeader>
+    <Box>
+
+      <PageHeader
+        fixed={fixed}
+        subtitle={subtitle}
+        title={title}
+        actions={ actions ? <Button size="small">Actions</Button> : null }
+        buttonBack={
+          buttonBack
+            ? <IconButton  color="primary"> <ArrowBack fontSize="small" /> </IconButton>
+            : null
+        }
+      ></PageHeader>
+    </Box>
   )
 };

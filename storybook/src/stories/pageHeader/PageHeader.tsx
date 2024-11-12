@@ -9,24 +9,7 @@ export interface PageheaderProperties {
   buttonBack?: React.ReactNode;
   fixed?: boolean;
 }
-export function PageHeaderWraps({
-  item,
-  color,
-  variant,
-}: {
-  item: string | React.ReactNode;
-  color: string;
-  variant: Variant;
-}) {
-  if (typeof item === "string") {
-    return (
-      <Typography variant={variant} color={color}>
-        {item}
-      </Typography>
-    );
-  }
-  return <>{item}</>;
-}
+
 export const PageHeaderComponent = ({
   title,
   subtitle,
@@ -36,6 +19,8 @@ export const PageHeaderComponent = ({
 }: PageheaderProperties) => {
   return (
     <Stack
+      id="main-container"
+      height={48}
       position={fixed ? "fixed" : "relative"}
       width={fixed ? "100%" : "inherit"}
       bgcolor="background.paper"
@@ -45,30 +30,28 @@ export const PageHeaderComponent = ({
       }}
     >
       <Stack
-        padding="5px 24px 5px 6px"
+        id="acionts"
+        height={40}
+        padding={buttonBack ? "4px 24px 4px 6px" : "4px 24px 4px 24px"}
         justifyContent="space-between"
         flexDirection="row"
         alignItems="center"
       >
-        <Stack gap={1} flexDirection="row" alignItems="center">
+        <Stack gap={1} flexDirection="row" alignItems="center" id="action-one">
           {buttonBack}
-          <Stack>
-            <Stack>
-              <PageHeaderWraps color="text.primary" item={title} variant="h6" />
-            </Stack>
+          <Stack id="title-container" gap={.5}>
+            <Typography color="text.primary" variant="h6">
+              {title}
+            </Typography>
             {subtitle && (
-              <Stack alignItems="center" flexDirection="row" gap={2}>
-                <PageHeaderWraps
-                  color="text.secondary"
-                  item={subtitle}
-                  variant="caption"
-                />
-              </Stack>
+              <Typography color="text.primary" variant="caption">
+                {subtitle}
+              </Typography>
             )}
           </Stack>
         </Stack>
         {actions && (
-          <Stack gap={1} alignItems="center" flexDirection="row">
+          <Stack id="aciont-two" gap={1} alignItems="center" flexDirection="row">
             {actions}
           </Stack>
         )}

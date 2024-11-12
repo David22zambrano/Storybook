@@ -45,103 +45,19 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof List>;
 
-// export const ListStory: Story = {
-//   name: "List",
-//   args: {
-//     dense: false,
-//     children: "Vacio", 
-//     subheader: "list",
-//     title: "list"
-//   },
-//   render: ({ dense, children, subheader, title }) => {
-//     const [checked, setChecked] = useState<number[]>([]);
-
-//     const handleToggle = (value: number) => () => {
-//       const currentIndex = checked.indexOf(value);
-//       const newChecked = [...checked];
-
-//       if (currentIndex === -1) {
-//         newChecked.push(value);
-//       } else {
-//         newChecked.splice(currentIndex, 1);
-//       }
-
-//       setChecked(newChecked);
-//     };
-
-//     const renderIcon = () => {
-//       switch (children) {
-//         case "Avatar":
-//           return <Avatar sx={{ width: 20, height: 20 }} />;
-//         case "Icono":
-//           return <Inbox fontSize="medium" />;
-//         case "Icono y checkBox":
-//           return (
-//             <Box display="flex" alignItems="center" gap={1}>
-//               <Checkbox edge="start" disableRipple />
-//               <Inbox fontSize="medium" />
-//             </Box>
-//           );
-//         case "Avatar y checkBox":
-//           return (
-//             <Box display="flex" alignItems="center" gap={1}>
-//               <Checkbox edge="start" disableRipple />
-//               <Avatar sx={{ width: 20, height: 20 }} />
-//             </Box>
-//           );
-//         case "checkbox":
-//           return <Checkbox edge="start" disableRipple />;
-//         default:
-//           return null;
-//       }
-//     };
-
-//     return (
-//       <Stack width="100%" bgcolor="background.paper">
-//         <List dense={dense}>
-//           {[0, 1].map((value) => (
-//             <ListItem key={value}>
-//               <ListItemButton onClick={handleToggle(value)}>
-//                 <ListItemIcon>
-//                   {children === "AmboIcono y checkBoxs" ? (
-//                     <Box display="flex" alignItems="center" gap={1}>
-//                       <Checkbox
-//                         edge="start"
-//                         checked={checked.indexOf(value) !== -1}
-//                         tabIndex={-1}
-//                         disableRipple
-//                       />
-//                       <Inbox fontSize="medium" />
-//                     </Box>
-//                   ) : (
-//                     renderIcon()
-//                   )}
-//                 </ListItemIcon>
-//                 <ListItemText primary={title} secondary={subheader} />
-//               </ListItemButton>
-//             </ListItem>
-//           ))}
-//         </List>
-//       </Stack>
-//     );
-//   },
-// };
-
 export const ListExample: Story = {
   name: "List",
   args: {
     dense: false,
-    children: "Vacio", 
     subheader: "list",
     title: "list"
   },
-  render: () => {
-
+  render: ({dense}) => {
 
     return (
       <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <nav aria-label="main mailbox folders">
-        <List>
+        <List dense={dense}>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -162,7 +78,7 @@ export const ListExample: Story = {
       </nav>
       <Divider />
       <nav aria-label="secondary mailbox folders">
-        <List>
+        <List dense={dense}>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemText primary="Trash" />

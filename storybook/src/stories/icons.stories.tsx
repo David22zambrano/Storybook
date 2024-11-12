@@ -1,7 +1,7 @@
 import "./Generales";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeProvider, SvgIcon } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import { DeleteOutline } from "@mui/icons-material";
 import { SincoTheme } from "../Theme";
 
 const meta: Meta<typeof SvgIcon> = {
@@ -36,7 +36,7 @@ export const Icon: Story = {
     fontSize: "small",
   },
   render: ({ fontSize }) => (
-    <Delete fontSize={fontSize} />
+    <DeleteOutline fontSize={fontSize} />
   ),
 };
 
@@ -46,7 +46,7 @@ export const IconSmall: Story = {
     fontSize: "small",
   },
   render: () => (
-    <Delete />
+    <DeleteOutline />
   ),
 };
 
@@ -56,7 +56,7 @@ export const IconMedium: Story = {
     fontSize: "medium",
   },
   render: () => (
-    <Delete />
+    <DeleteOutline />
   ),
 };
 
@@ -66,6 +66,6 @@ export const IconLarge: Story = {
     fontSize: "large",
   },
   render: () => (
-    <Delete />
+    <DeleteOutline />
   ),
 };
