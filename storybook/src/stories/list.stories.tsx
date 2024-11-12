@@ -31,8 +31,6 @@ const meta: Meta<typeof List> = {
     },
     children: {
       description: "El contenido del componente.",
-      control: 'select',
-      options: ["Avatar", "Icono", "Vacio", "checkbox", "Icono y checkBox", "Avatar y checkBox"] 
     },
     title: {
       description: "El contenido del título",
