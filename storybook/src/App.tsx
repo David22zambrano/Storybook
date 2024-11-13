@@ -27,118 +27,170 @@ function App() {
         <Close fontSize="inherit" />
       </IconButton>
 
-      <Stack width={600} gap={1}>
-        <Stack gap={1}>
-          <Typography>
-            Filled medium
-          </Typography>
-          <FormControl fullWidth variant='filled' size="medium">
-            <InputLabel id="demo-simple-select-label">Label</InputLabel>
-            <Select
-              // variant="standard"
-              value={age}
-              label="Label"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-          <Typography>
-            Filled small
-          </Typography>
-          <FormControl fullWidth variant='filled' size="small">
-            <InputLabel id="demo-simple-select-label">Label</InputLabel>
-            <Select
-              variant="filled"
-              value={age}
-              label="Label"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </Stack>
-       
-        <Stack >
-          <Typography>
-            outlined medium
-          </Typography>
-          <FormControl fullWidth size="medium">
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-            <Select
-              variant="outlined"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-          <Typography>
-            outlined small
-          </Typography>
-          <FormControl fullWidth size="small">
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-            <Select
-              variant="outlined"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </Stack>
-
-
-        <Stack gap={1}>
-          <Typography pb={1}>
-            Filled medium
-          </Typography>
-          <FormControl fullWidth variant='standard'  size='medium'>
-            <InputLabel id="demo-simple-select-label">Age</InputLabel>
-            <Select
-              variant="standard"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-          <Typography pb={1} >
-            Filled small
-          </Typography>
-          <FormControl fullWidth variant='standard' size='small'>
-            <InputLabel id="demo-simple-select-label" >Age</InputLabel>
-            <Select
-              variant="standard"
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </Stack>
+      <Stack width={200} gap={1}>
+        <FormControl fullWidth variant='standard' size="small">
+          <InputLabel id="demo-simple-select-label">Label</InputLabel>
+          <Select
+            variant='standard'
+            value={age}
+            label="Label"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl fullWidth variant='standard' size="medium">
+          <InputLabel id="demo-simple-select-label">Label</InputLabel>
+          <Select
+            variant='standard'
+            value={age}
+            label="Label"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl fullWidth variant="outlined">
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl fullWidth variant="filled">
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
 
       </Stack>
+      <Stack gap={1}>
+        <Typography>
+          Filled medium
+        </Typography>
+        <FormControl fullWidth variant='filled' size="medium">
+          <InputLabel id="demo-simple-select-label">Label</InputLabel>
+          <Select
+            // variant="standard"
+            value={age}
+            label="Label"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <Typography>
+          Filled small
+        </Typography>
+        <FormControl fullWidth variant='filled' size="small">
+          <InputLabel id="demo-simple-select-label">Label</InputLabel>
+          <Select
+            variant="filled"
+            value={age}
+            label="Label"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </Stack>
+
+      <Stack >
+        <Typography>
+          outlined medium
+        </Typography>
+        <FormControl fullWidth size="medium">
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            variant="outlined"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <Typography>
+          outlined small
+        </Typography>
+        <FormControl fullWidth size="small">
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            variant="outlined"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </Stack>
+
+
+      <Stack gap={1}>
+        <Typography pb={1}>
+          standard medium
+        </Typography>
+        <FormControl fullWidth variant='standard' size='medium'>
+          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+          <Select
+            variant="standard"
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+        <Typography pb={1} >
+          standard small
+        </Typography>
+        <FormControl fullWidth variant='standard' size='small'>
+          <InputLabel id="demo-simple-select-label" >Age</InputLabel>
+          <Select
+            variant="standard"
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+          >
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </Stack>   
     </>
   )
 }

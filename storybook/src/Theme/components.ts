@@ -11,19 +11,25 @@ import {
 export const components: Components<Theme> = {
   MuiSelect: {
     styleOverrides: {
+      outlined:{
+        paddingBlock: "13px"
+      },
       standard: {
-        // "&.MuiFormLabel-root.MuiInputLabel-root":{
-        //   left: "-9px"
-        // }
+        // padding: "2px 0 5px"
+      },
+      iconStandard:{
+        "&.MuiSelect-iconStandard.MuiSvgIcon-root": {
+          top: "calc(50% - .4em)",
+        }
       },
       iconFilled: {
         "&.MuiSelect-iconFilled.MuiSvgIcon-root": {
-          top: "calc(50% - .1em)",
+          top: "calc(50% - .15em)",
         }
       },
       iconOutlined: {
         "&.MuiSelect-iconOutlined.MuiSvgIcon-root": {
-          top: "calc(50% - .3em)",
+          top: "calc(50% - .35em)",
         }
       },
       icon: {
@@ -36,7 +42,6 @@ export const components: Components<Theme> = {
         fontWeight: 400,
         letterSpacing: "0.15px",
         lineHeight: "19px",
-
       },
     },
   },
@@ -966,7 +971,7 @@ export const components: Components<Theme> = {
           marginTop: 9,
         },
         ".MuiOutlinedInput-input.MuiInputBase-inputSizeSmall": {
-          paddingBlock: 6.66,
+          paddingBlock: 6.51,
         },
         ".MuiOutlinedInput-input": {
           paddingBlock: 14,
@@ -1040,17 +1045,17 @@ export const components: Components<Theme> = {
       standard: {
         "&.MuiInputLabel-standard.MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)":
         {
-          transform: "translate(0, 12px) scale(1)",
+          transform: "translate(0, 14px) scale(1)",
         },
         "&.MuiInputLabel-standard.MuiInputLabel-sizeMedium:not(.MuiInputLabel-shrink)":
         {
-          transform: "translate(0, 12px) scale(1)",
+          transform: "translate(0, 16px) scale(1)",
         },
 
       },
       outlined: {
         "&.MuiInputLabel-outlined.MuiInputLabel-sizeSmall ": {
-          transform: "translate(14px,7px) scale(1)",
+          transform: "translate(14px,8px) scale(1)",
         },
         "&.MuiInputLabel-outlined ": {
           transform: "translate(14px, 14px) scale(1)",

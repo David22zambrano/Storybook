@@ -39,24 +39,24 @@ const meta: Meta<typeof Select> = {
     },
     label: {
       description: "Texto dentro del select",
-      control: "text",
+      // control: "text",
     },
     error: {
       description: "	Si es `true`, la etiqueta se muestra en un estado de error.",
-      control: "boolean",
+      // control: "boolean",
     },
     color: {
-      description: "El color del componente.",
-      control: "select",
-      options: [
-        "primary",
-        "secondary",
-        "error",
-        "warning",
-        "info",
-        "success",
-        "inherit",
-      ],
+      description: "Color del componente.",
+      // control: "select",
+      // options: [
+      //   "primary",
+      //   "secondary",
+      //   "error",
+      //   "warning",
+      //   "info",
+      //   "success",
+      //   "inherit",
+      // ],
     },
     disabled: {
       description: "Si `true`, el componente está disabled.",
@@ -68,31 +68,30 @@ const meta: Meta<typeof Select> = {
 export default meta;
 type Story = StoryObj<typeof Select>;
 
-export const button: Story = {
+export const outlined: Story = {
   name: "select",
   args: {
-    variant: "standard",
+    variant: "outlined",
     size: "small",
     label: "Text",
     error: false,
     color: "primary",
     disabled: false,
   },
-  // { variant, size, label, error, color, disabled }
-  render: () => {
+
+  render: ({ variant, size, disabled }) => {
     const [age, setAge] = useState('');
 
     const handleChange = (event: SelectChangeEvent) => {
       setAge(event.target.value as string);
     };
     return (
-      <Stack  width={200} gap={1}>
-        <FormControl fullWidth variant='filled'>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+      <Stack width={200} gap={1}>
+        {/* <FormControl fullWidth variant='standard' size="medium">
+          <InputLabel id="demo-simple-select-label">Label</InputLabel>
           <Select
-             variant="standard"
             value={age}
-            label="Age"
+            label="Label"
             onChange={handleChange}
           >
             <MenuItem value={10}>Ten</MenuItem>
@@ -100,12 +99,12 @@ export const button: Story = {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+       */}
+        <FormControl fullWidth variant={variant} size={size} disabled={disabled}>
+          <InputLabel id="demo-simple-select-label">Label</InputLabel>
           <Select
-            variant="outlined"
             value={age}
-            label="Age"
+            label="Label"
             onChange={handleChange}
           >
             <MenuItem value={10}>Ten</MenuItem>
@@ -113,14 +112,13 @@ export const button: Story = {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        {/* <FormControl fullWidth variant="filled" size="medium">
+          <InputLabel id="demo-simple-select-label">Label</InputLabel>
           <Select
-            variant="filled"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={age}
-            label="Age"
+            label="Label"
             onChange={handleChange}
           >
             <MenuItem value={10}>Ten</MenuItem>
@@ -128,8 +126,9 @@ export const button: Story = {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
-
+      */}
       </Stack>
+
     )
   },
 };
@@ -145,14 +144,13 @@ export const standard: Story = {
 
     return (
       <Stack flexDirection={"row"} width={200} gap={1}>
-        <FormControl fullWidth>
+        <FormControl fullWidth variant="standard">
           <InputLabel id="demo-simple-select-label">Input label</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={age}
             label="Age"
-            variant="filled"
             onChange={handleChange}
           >
             <MenuItem value={10}>Ten</MenuItem>
@@ -175,10 +173,9 @@ export const filled: Story = {
     };
     return (
       <Stack flexDirection={"row"} width={200} gap={1}>
-        <FormControl fullWidth>
+        <FormControl fullWidth variant="filled" >
           <InputLabel id="demo-simple-select-label">Input label</InputLabel>
           <Select
-            variant="filled"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={age}
