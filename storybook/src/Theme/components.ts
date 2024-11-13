@@ -744,6 +744,12 @@ export const components: Components<Theme> = {
               color: theme.palette.text.primary
             }
           },
+          {
+            props: { variant: "outlined" },
+            style: {
+              color: theme.palette.text.primary
+            }
+          },
 
         ]
       }),
@@ -781,19 +787,25 @@ export const components: Components<Theme> = {
         ]
 
       }),
-      action: ({ theme }) => ({        
-          display: "flex",
-          gap: 1.5,
-          padding: "0px",
-          variants: [
-            {
-              props: { variant: "standard" },
-              style: {
-                color: theme.palette.action.active
-              }
+      action: ({ theme }) => ({
+        display: "flex",
+        gap: 1.5,
+        padding: "0px",
+        variants: [
+          {
+            props: { variant: "standard" },
+            style: {
+              color: theme.palette.action.active
             }
-          ]
-        }),
+          },
+          {
+            props: { variant: "outlined" },
+            style: {
+              color: theme.palette.action.active
+            }
+          }
+        ]
+      }),
 
       root: {
         padding: "8px 12px 8px 12px",
