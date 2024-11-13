@@ -781,13 +781,19 @@ export const components: Components<Theme> = {
         ]
 
       }),
-      action: ({ theme }) => {
-        (
+      action: ({ theme }) => ({        
           display: "flex",
           gap: 1.5,
           padding: "0px",
-          color: theme.palette.action.active
-        )},
+          variants: [
+            {
+              props: { variant: "standard" },
+              style: {
+                color: theme.palette.action.active
+              }
+            }
+          ]
+        }),
 
       root: {
         padding: "8px 12px 8px 12px",
