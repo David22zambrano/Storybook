@@ -744,7 +744,7 @@ export const components: Components<Theme> = {
               color: theme.palette.text.primary
             }
           },
-          
+
         ]
       }),
       icon: ({ theme }) => ({
@@ -781,11 +781,13 @@ export const components: Components<Theme> = {
         ]
 
       }),
-      action: {
-        display: "flex",
-        gap: 1.5,
-        padding: "0px",
-      },
+      action: ({ theme }) => {
+        (
+          display: "flex",
+          gap: 1.5,
+          padding: "0px",
+          color: theme.palette.action.active
+        )},
 
       root: {
         padding: "8px 12px 8px 12px",
