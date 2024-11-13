@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import "./Generales";
 import { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider, Chip, Collapse, FormControl, IconButton, InputLabel, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Box, Divider } from '@mui/material'
-import { Close, Drafts, ExpandLess, ExpandMore, Inbox, Send, StarBorder } from '@mui/icons-material';
+import { ThemeProvider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Box, Divider } from '@mui/material'
+import {  Drafts, Inbox } from '@mui/icons-material';
 import { SincoTheme } from "../Theme";
-import { useState } from 'react';
 
 const meta: Meta<typeof List> = {
   title: "Components/List",

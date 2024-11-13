@@ -31,15 +31,7 @@ const meta: Meta<typeof Alert> = {
     color: {
       description:"	El color del componente.",
       control: "select",
-      options: [
-        "primary",
-        "secondary",
-        "error",
-        "warning",
-        "info",
-        "success",
-        "inherit",
-      ],
+      options: ["error", "info", "success", "warning"],
     },
     severity: {
       description:"El componente asigna la ` severity` propiedad a una variedad de íconos diferentes",

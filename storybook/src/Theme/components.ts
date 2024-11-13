@@ -1,6 +1,6 @@
 import React from "react";
 import type { } from "@mui/x-data-grid/themeAugmentation";
-import { Components, Theme, chipClasses } from "@mui/material";
+import { Components, Theme } from "@mui/material";
 import {
   InfoRounded,
   CheckCircleRounded,
@@ -11,13 +11,10 @@ import {
 export const components: Components<Theme> = {
   MuiSelect: {
     styleOverrides: {
-      outlined:{
+      outlined: {
         paddingBlock: "13px"
       },
-      standard: {
-        // padding: "2px 0 5px"
-      },
-      iconStandard:{
+      iconStandard: {
         "&.MuiSelect-iconStandard.MuiSvgIcon-root": {
           top: "calc(50% - .4em)",
         }
@@ -736,16 +733,54 @@ export const components: Components<Theme> = {
       },
     ],
     styleOverrides: {
-      message: {
-        padding: "0px 0px",
+
+      message: ({ theme }) => ({
+        padding: "0px 4px",
         minWidth: 0,
-      },
-      icon: {
+        variants: [
+          {
+            props: { variant: "standard" },
+            style: {
+              color: theme.palette.text.primary
+            }
+          },
+          
+        ]
+      }),
+      icon: ({ theme }) => ({
         padding: "4px",
         marginRight: 0,
         display: "flex",
         alignItems: "center",
-      },
+        borderRadius: 100,
+        variants: [
+          {
+            props: { variant: "standard", color: "success" },
+            style: {
+              backgroundColor: theme.palette.success[100],
+            },
+          },
+          {
+            props: { variant: "standard", color: "error" },
+            style: {
+              backgroundColor: theme.palette.error[100],
+            },
+          },
+          {
+            props: { variant: "standard", color: "info" },
+            style: {
+              backgroundColor: theme.palette.info[100],
+            },
+          },
+          {
+            props: { variant: "standard", color: "warning" },
+            style: {
+              backgroundColor: theme.palette.warning[100],
+            },
+          },
+        ]
+
+      }),
       action: {
         display: "flex",
         gap: 1.5,
@@ -770,7 +805,7 @@ export const components: Components<Theme> = {
       root: {
         marginBottom: 0,
         marginTop: 2.5
-      }
+      },
     }
   },
   MuiButton: {
