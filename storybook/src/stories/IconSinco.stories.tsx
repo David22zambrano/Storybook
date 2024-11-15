@@ -1,10 +1,12 @@
 import "./Generales";
-import * as Icons from "@sinco/react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeProvider, SvgIcon, Box, Typography, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import { SincoTheme } from "../Theme";
-import { BarChartHorizontal } from "@sinco/react";
 import { IconsData } from "./Generales";
+import { BarChartHorizontal } from "@sinco/react";
+import * as Icons from './Iconos/iconos';
+
+type IconNames = keyof typeof Icons;
 
 const meta: Meta<typeof SvgIcon> = {
   title: "Sinco React/SincoIcons",
@@ -21,7 +23,7 @@ const meta: Meta<typeof SvgIcon> = {
     layout: "centered",
     docs: {
       description: {
-        story: "Paquete de iconos propios de Sincosoft, alojados en la libreria @sinco/react. \n\n Ejemplo: `<BarChartHorizontal fontSize='large' />` ",
+        component: "Paquete de iconos propios de Sincosoft, alojados en la libreria @sinco/react. \n\n Ejemplo: `<BarChartHorizontal fontSize='large' />` ",
       },
     },
   },
@@ -38,7 +40,7 @@ export default meta;
 type Story = StoryObj<typeof SvgIcon>;
 
 export const Icon: Story = {
-  name: "Sinco icons library",
+  name: "Sinco icon",
   args: {
     fontSize: "large",
   },
@@ -50,30 +52,30 @@ export const Icon: Story = {
   ),
 };
 
-// export const AllIcons: Story = {
-//   name: "Sinco icons library",
-//   args: {
-//     fontSize: "large",
-//   },
-//   render: (args) => (
-//     <Box display="flex" gap={1} width={"100%"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
-//       <ImageList variant="masonry" cols={3} gap={8}>
-//         {IconsData.map((icon) => {
-//           const IconComponent = Icons[icon.name]; 
-//           return IconComponent ? (
-//             <ImageListItem key={icon.name}>
-//               <IconComponent fontSize={args.fontSize} />
-//               <ImageListItemBar position="below" title={icon.name} />
-//             </ImageListItem>
-//           ) : (
-//             <ImageListItem key={icon.name}>
-//               <Typography variant="caption" color="error">
-//                 Icono no encontrado: {icon.name}
-//               </Typography>
-//             </ImageListItem>
-//           );
-//         })}
-//       </ImageList>
-//     </Box>
-//   ),
-// };
+
+
+
+export const AllIcons: Story = {
+  name: "Sinco icons library",
+  args: {
+    fontSize: "large",
+  },
+  render: (args) => {
+
+    return (
+      <Box display="flex" gap={1} width={"100%"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
+        <ImageList variant="masonry" cols={3} gap={8}>
+          {IconsData.map((iconData, index) => {
+            const IconComponent = Icons[iconData.name as IconNames];
+            return (
+              <ImageListItem key={index} sx={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column"}} >
+                <IconComponent fontSize="large" />
+                <ImageListItemBar position="below" title={iconData.name} />
+              </ImageListItem>
+            );
+          })}
+        </ImageList>
+      </Box>
+    )
+  },
+};

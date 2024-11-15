@@ -54,11 +54,9 @@ export const button: Story = {
   args: {
     title: "tooltip",
     placement: "bottom",
-    arrow: true
   },
-  render: ({ title, placement, arrow }) => (
+  render: ({ title, placement }) => (
     <Tooltip
-      arrow={arrow}
       title={title}
       placement={placement}>
       <Typography variant="h6" color="text.primary" >El tooltip se muestra al hacer hover sobre el texto</Typography>

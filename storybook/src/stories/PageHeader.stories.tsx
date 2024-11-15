@@ -42,7 +42,7 @@ const meta: Meta<typeof PageHeader> = {
   },
 };
 export default meta;
- type Story = StoryObj<typeof PageHeader>;
+type Story = StoryObj<typeof PageHeader>;
 
 export const PageHeaderExmaple: Story = {
   name: "PageHeader",
@@ -50,7 +50,19 @@ export const PageHeaderExmaple: Story = {
     fixed: false,
     title: "Titulo",
     subtitle: "Subtitle",
-    actions: <Button size="small">Actions</Button>,
+    actions: (
+      <Box display="flex" gap={1}>
+        <Button size="small" variant="outlined" color="primary">
+          Action 1
+        </Button>
+        <Button size="small" variant="outlined" color="primary">
+          Action 2
+        </Button>
+        <Button size="small" variant="outlined" color="primary">
+          Action 3
+        </Button>
+      </Box>
+    ),
     buttonBack: false,
   },
   render: ({ fixed, title, subtitle, buttonBack, actions }) => (
@@ -60,13 +72,13 @@ export const PageHeaderExmaple: Story = {
         fixed={fixed}
         subtitle={subtitle}
         title={title}
-        actions={ actions ? <Button size="small">Actions</Button> : null }
+        actions={ actions ? actions : null }
         buttonBack={
           buttonBack
-            ? <IconButton  color="primary"> <ArrowBack fontSize="small" /> </IconButton>
+            ? <IconButton color="primary"> < ArrowBack fontSize="small" /> </IconButton >
             : null
         }
-      ></PageHeader>
-    </Box>
+      ></PageHeader >
+    </Box >
   )
 };

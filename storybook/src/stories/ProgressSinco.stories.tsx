@@ -37,7 +37,7 @@ type Story = StoryObj<typeof ProgressSinco>;
 export const ProgressSincoStory: Story = {
   name: "ProgressSinco",
   args:{
-    textPorcent: "Procesando.."
+    textPorcent: "Procesando"
   },
   render: ({textPorcent}) => <ProgressSinco textPorcent={textPorcent} time={1000}  />,
 };

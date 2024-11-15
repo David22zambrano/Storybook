@@ -125,10 +125,6 @@ export const DrawerStory: Story = {
           {...args}
           onClose={handleDrawerState}
           open={state}
-          // width={"500px"}
-          // title={"title"}
-          anchor={"left"}
-          anchorActions={"flex-end"}
           actions={
             <Stack gap={1} flexDirection="row">
               <Button color="primary" variant="text" size="small" onClick={handleDrawerState}>

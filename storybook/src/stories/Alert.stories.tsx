@@ -34,9 +34,9 @@ const meta: Meta<typeof Alert> = {
       options: ["error", "info", "success", "warning"],
     },
     severity: {
-      description:"El componente asigna la ` severity` propiedad a una variedad de íconos diferentes",
-      control: "select",
-      options: ["error", "info", "success", "warning"],
+      // description:"El componente asigna la ` severity` propiedad a una variedad de íconos diferentes",
+      // control: "select",
+      // options: ["error", "info", "success", "warning"],
     },
     title: {
       description:"El contenido del título",
@@ -63,17 +63,16 @@ export const AlertStory: Story = {
     title:"Titulo del alert",
     children: "Contenido del alert",
     variant: "filled",
-    severity: "info",
     color: "info",
     action:false,
     icon:<></>
     
   },
-  render: ({ children, variant, title, severity, color, action,icon}) => (
+  render: ({ children, variant, title, color, action,icon}) => (
     <Alert
     variant={variant}
     color={color}
-    severity={severity}
+    severity={color}
     action={
       <>
         {action && (

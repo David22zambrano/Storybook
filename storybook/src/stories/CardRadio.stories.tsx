@@ -4,6 +4,7 @@ import img from "../assets/Ilustracion.svg";
 import { Stack, ThemeProvider } from "@mui/material";
 import { SincoTheme } from "../Theme";
 import "./Generales";
+// import { CardRadio } from "./CardRadio/CardRadio";
 import { CardRadio } from "@sinco/react";
 
 const meta: Meta<typeof CardRadio> = {
@@ -39,7 +40,7 @@ const meta: Meta<typeof CardRadio> = {
     state: {
       description: "",
       control: "select",
-      options: ["active", "disabled", "default"]
+      options: ["active", "disabled"]
     },
     color: {
       description: "Aplica el color del componente",
@@ -48,6 +49,11 @@ const meta: Meta<typeof CardRadio> = {
     },
     media: {
       description: "Img que se muestra dentro del componente"
+    },
+    header: {
+      table: {
+        disable: true
+      },
     }
   }
 };
@@ -57,26 +63,26 @@ export default meta;
 type Story = StoryFn | StoryObj<typeof CardRadio>;
 
 export const CardRadioExample: Story = {
-  name: "Card Radio",
+  name: "Card Radio ",
   args: {
     checked: false,
     topRadioPosition: false,
-    state: "active",
-    RadioPosition: "left"
+    RadioPosition: "left",
+    color: "primary"
   },
-  render: ({ checked, RadioPosition, topRadioPosition, state }) => {
+  render: ({ checked, RadioPosition, topRadioPosition, state, color }) => {
     return (
       <>
         <CardRadio
+          header="Header title CardRadio"
+          content="Content text card radio"
+          media={<img src={img} alt="a" style={{ height: 40, width: 40 }} />}
           sx={{}}
           sxContent={{}}
-          header="Header title CardRadio"
-          color="primary"
-          content="Content text card radio"
-          state={state}
+          color={color}
+          // state={state}
           RadioPosition={RadioPosition}
           topRadioPosition={topRadioPosition}
-          media={<img src={img} alt="a" style={{ height: 40, width: 40 }} />}
           onChange={() => { }}
           checked={checked}
           value={0}
@@ -85,27 +91,6 @@ export const CardRadioExample: Story = {
     )
   }
 }
-
-export const CardRadioStory: Story = () => {
-  const [prueba, setPrueba] = useState(0);
-
-  return (
-    <CardRadio
-      sx={{}}
-      sxContent={{}}
-      header="Header title CardRadio"
-      color="primary"
-      state="active"
-      RadioPosition="right"
-      topRadioPosition={true}
-      content="Content text card radio"
-      media={<img src={img} alt="a" style={{ height: 40, width: 40 }} />}
-      onChange={(value: number | string) => setPrueba(value as number)}
-      checked={prueba === 0}
-      value={0}
-    />
-  );
-};
 
 export const CardRadioOptions: Story = () => {
   const [prueba, setPrueba] = useState(0);
@@ -117,7 +102,7 @@ export const CardRadioOptions: Story = () => {
         sxContent={{}}
         media={<img src={img} alt="a" style={{ height: 40, width: 40 }} />}
         header="Header title CardRadio"
-        color="primary"
+        color="secondary"
         state="active"
         RadioPosition="left"
         topRadioPosition={true}

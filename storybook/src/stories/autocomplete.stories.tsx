@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider, Autocomplete, Stack, TextField } from "@mui/material";
-import ClearIcon from "@mui/icons-material/Clear"; 
+import { ThemeProvider, Autocomplete, Stack, TextField, Box } from "@mui/material";
+import ClearIcon from "@mui/icons-material/Clear";
 import { SincoTheme } from "../Theme";
 import "./Generales";
+import { countries } from "./Generales";
 
 const meta: Meta<typeof Autocomplete> = {
   title: "Components/Autocomplete",
@@ -32,14 +33,14 @@ const meta: Meta<typeof Autocomplete> = {
     clearIcon: {
       description: "El icono que se mostrará en lugar del icono transparente predeterminado.",
       control: "select",
-      options: ["ClearIcon", "none"], 
+      options: ["ClearIcon", "none"],
       mapping: {
         ClearIcon: <ClearIcon />,
-        none: null, 
+        none: null,
       },
     },
-   
-   
+
+
   },
 };
 
@@ -56,15 +57,15 @@ export const AutoCompleteStorie: Story = {
   render: ({ readOnly, disabled, clearIcon }) => (
     <Autocomplete
       disablePortal
-      options={top100Films ?? []} 
+      options={top100Films ?? []}
       sx={{ width: 300 }}
-      clearIcon={clearIcon} 
+      clearIcon={clearIcon}
       renderInput={(params) => (
-        <TextField {...(params ?? {})} label="Movie" />  
+        <TextField {...(params ?? {})} label="Movie" />
       )}
       readOnly={readOnly}
       disabled={disabled}
-      
+
     />
   ),
 };
@@ -83,7 +84,53 @@ const top100Films = [
   },
 ];
 
-export const AutocompleteMultiple:Story={
+export const AutocompleteCountrys: Story = {
+  name: "Autocomplete international phone",
+  render: () => (
+    <Autocomplete
+      id="country-select-demo"
+      sx={{ width: 300 }}
+      options={countries}
+      autoHighlight
+      getOptionLabel={(option) => option.label}
+      renderOption={(props, option) => {
+        const { key, ...optionProps } = props;
+        return (
+          <Box
+            key={key}
+            component="li"
+            sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
+            {...optionProps}
+          >
+            <img
+              loading="lazy"
+              width="20"
+              srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+              src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+              alt=""
+            />
+            {option.label} ({option.code}) +{option.phone}
+          </Box>
+        );
+      }}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label="Choose a country"
+          slotProps={{
+            htmlInput: {
+              ...params.inputProps,
+              autoComplete: 'new-password', // disable autocomplete and autofill
+            },
+          }}
+        />
+      )}
+    />
+  )
+}
+
+
+export const AutocompleteMultiple: Story = {
   name: "AutocompleteMultiple",
   args: {
     readOnly: false,
@@ -93,16 +140,16 @@ export const AutocompleteMultiple:Story={
   render: ({ readOnly, disabled, clearIcon }) => (
     <Autocomplete
       disablePortal
-      options={top100Films ?? []} 
+      options={top100Films ?? []}
       sx={{ width: 300 }}
-      clearIcon={clearIcon} 
+      clearIcon={clearIcon}
       renderInput={(params) => (
-        <TextField {...(params ?? {})} label="Movie" />  
+        <TextField {...(params ?? {})} label="Movie" />
       )}
       readOnly={readOnly}
       disabled={disabled}
       multiple
-      
+
     />
   ),
 
