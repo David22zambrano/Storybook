@@ -70,7 +70,7 @@ export const CardRadioExample: Story = {
     RadioPosition: "left",
     color: "primary"
   },
-  render: ({ checked, RadioPosition, topRadioPosition, state, color }) => {
+  render: ({ checked, RadioPosition, topRadioPosition, color, state }) => {
     return (
       <>
         <CardRadio
@@ -80,7 +80,7 @@ export const CardRadioExample: Story = {
           sx={{}}
           sxContent={{}}
           color={color}
-          // state={state}
+          state={state}
           RadioPosition={RadioPosition}
           topRadioPosition={topRadioPosition}
           onChange={() => { }}
