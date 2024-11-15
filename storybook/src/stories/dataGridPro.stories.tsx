@@ -79,17 +79,17 @@ args:{
 },
   render: ({density}) => (
      <Box
-    sx={(theme) => ({
-      height: 400,
-      width: '100%',
-      '& .MuiDataGrid-cell--editable': {
-        bgcolor: 'rgb(217 243 190)',
-        ...theme.applyStyles('dark', {
-          bgcolor: '#376331',
+    // sx={(theme) => ({
+    //   height: 400,
+    //   width: '100%',
+    //   '& .MuiDataGrid-cell--editable': {
+    //     bgcolor: 'rgb(217 243 190)',
+    //     ...theme.applyStyles('dark', {
+    //       bgcolor: '#376331',
           
-        }),
-      },
-    })}
+    //     }),
+    //   },
+    // })}
   >
       <DataGridPro
       density={density}

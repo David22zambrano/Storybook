@@ -10,9 +10,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+import { useCallback, useState } from "react";
 import { SincoTheme } from "../Theme";
 import "./Generales";
-import { useCallback, useState } from "react";
 
 const meta: Meta<typeof Dialog> = {
   title: "Components/Dialog",
@@ -54,7 +54,6 @@ type Story = StoryObj<typeof Dialog>;
 export const DialogStorie: Story = {
   name: "Dialog",
   args: {
-    open: true,
     fullWidth: true,
     maxWidth: "xl"
   },

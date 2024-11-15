@@ -22,11 +22,69 @@ const meta: Meta<typeof CardRadio> = {
   parameters: {
     layout: "centered",
   },
+  argTypes: {
+    checked: {
+      description: "Controla si es componente esta o no en estado seleccionado",
+      control: "boolean"
+    },
+    topRadioPosition: {
+      description: "Modifica la alineacion del radio button del componente",
+      control: "boolean"
+    },
+    RadioPosition: {
+      description: "Alinea en eje x la posicion del radio button",
+      control: "select",
+      options: ["left", "right"]
+    },
+    state: {
+      description: "",
+      control: "select",
+      options: ["active", "disabled", "default"]
+    },
+    color: {
+      description: "Aplica el color del componente",
+      control: "select",
+      options: ["primary", "secondary"]
+    },
+    media: {
+      description: "Img que se muestra dentro del componente"
+    }
+  }
 };
 
 export default meta;
 
 type Story = StoryFn | StoryObj<typeof CardRadio>;
+
+export const CardRadioExample: Story = {
+  name: "Card Radio",
+  args: {
+    checked: false,
+    topRadioPosition: false,
+    state: "active",
+    RadioPosition: "left"
+  },
+  render: ({ checked, RadioPosition, topRadioPosition, state }) => {
+    return (
+      <>
+        <CardRadio
+          sx={{}}
+          sxContent={{}}
+          header="Header title CardRadio"
+          color="primary"
+          content="Content text card radio"
+          state={state}
+          RadioPosition={RadioPosition}
+          topRadioPosition={topRadioPosition}
+          media={<img src={img} alt="a" style={{ height: 40, width: 40 }} />}
+          onChange={() => { }}
+          checked={checked}
+          value={0}
+        />
+      </>
+    )
+  }
+}
 
 export const CardRadioStory: Story = () => {
   const [prueba, setPrueba] = useState(0);

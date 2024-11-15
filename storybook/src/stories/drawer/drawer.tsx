@@ -68,8 +68,7 @@ export const DrawerComponent = ({
       onClose={onClose}
       sx={{
         "& .MuiBackdrop-root": {
-          backgroundColor: "#F0f0f099 !important",
-          backdropFilter: "blur(4px)",
+          backgroundColor: "#00000047"
         },
 
         "& .MuiDrawer-paper": {
@@ -87,11 +86,11 @@ export const DrawerComponent = ({
           py={1.5}
           px={1}
           sx={{
-            backgroundColor:  headerColor  || "secondary",
+            backgroundColor: "secondary.main" || `${headerColor}.main`,
             ...sxHeader
           }}
         >
-          <Typography color={color || "background.paper"} variant="h6">
+          <Typography color={ "background.paper" || color } variant="h6">
             {title}
           </Typography>
 
@@ -135,4 +134,3 @@ export const DrawerComponent = ({
   );
 };
 export { DrawerComponent as Drawer };
-

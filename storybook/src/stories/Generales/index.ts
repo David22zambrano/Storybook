@@ -1,1 +1,2 @@
-export * from './tipografia';
+export * from './Tipografia';
+export * from './Data';
