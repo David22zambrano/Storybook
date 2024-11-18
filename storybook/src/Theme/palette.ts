@@ -2,12 +2,6 @@ import { PaletteOptions } from "@mui/material";
 
 
 export const BasicPalette: Partial<PaletteOptions> = {
-  default: {
-    main: "#E4E5E7",
-    dark: "#D1D3D7",
-    light: "#F2F2F3",
-    contrastText: "#5A5E73"
-  },
   chipInfo: {
     main: "#C0E8FC",
     dark: "#9CD8FA",
@@ -138,6 +132,12 @@ export const BasicPalette: Partial<PaletteOptions> = {
     white: "#fff",
   },
   divider: "#0000001f",
+  default: {
+    main: "#E4E5E7",
+    dark: "#D1D3D7",
+    light: "#F2F2F3",
+    contrastText: "#5A5E73"
+  },
 };
 
 export const paletteERP: PaletteOptions = {

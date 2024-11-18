@@ -142,6 +142,9 @@ export const CardRadio: FC<CardRadioProps> = ({
             checked={isChecked || isChecked}
             color={color}
             disabled={state === 'disabled'}
+            sx={{
+                // back
+            }}
           />
         </Stack>
       </Stack>

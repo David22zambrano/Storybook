@@ -829,6 +829,9 @@ export const components: Components<Theme> = {
   },
   MuiButton: {
     styleOverrides: {
+      icon:{
+
+      },
       root: {
         fontFamily: "Roboto",
         textTransform: "unset",
@@ -974,6 +977,14 @@ export const components: Components<Theme> = {
   },
   MuiSvgIcon: {
     styleOverrides: {
+      root: {
+        // "&.MuiSvgIcon-root:not(.MuiButton-root)": {
+        //   color: "#1018408a !important"
+        // },
+        variants: [
+          { props: { color: "default" }, style: { color: "#1018408a" } }
+        ]
+      },
       fontSizeLarge: {
         width: 35,
         height: 35,
@@ -992,7 +1003,11 @@ export const components: Components<Theme> = {
     },
   },
   MuiIconButton: {
+    defaultProps:{
+      color: "primary"
+    },
     styleOverrides: {
+ 
       sizeSmall: {
         padding: 3,
       },

@@ -4,8 +4,8 @@ import img from "../assets/Ilustracion.svg";
 import { Stack, ThemeProvider } from "@mui/material";
 import { SincoTheme } from "../Theme";
 import "./Generales";
-// import { CardRadio } from "./CardRadio/CardRadio";
-import { CardRadio } from "@sinco/react";
+import { CardRadio } from "./CardRadio/CardRadio";
+// import { CardRadio } from "@sinco/react";
 
 const meta: Meta<typeof CardRadio> = {
   title: "sinco react/Card Radio",
@@ -68,7 +68,7 @@ export const CardRadioExample: Story = {
     checked: false,
     topRadioPosition: false,
     RadioPosition: "left",
-    color: "primary"
+    color: "primary",
   },
   render: ({ checked, RadioPosition, topRadioPosition, color, state }) => {
     return (
@@ -102,20 +102,20 @@ export const CardRadioOptions: Story = () => {
         sxContent={{}}
         media={<img src={img} alt="a" style={{ height: 40, width: 40 }} />}
         header="Header title CardRadio"
-        color="secondary"
-        state="active"
+        color="primary"
+        state="disabled"
         RadioPosition="left"
         topRadioPosition={true}
         content="Content text card radio"
         onChange={(value: number | string) => setPrueba(value as number)}
-        checked={prueba === 0}
+        checked={true}
         value={0}
       />
       <CardRadio
         sx={{}}
         sxContent={{}}
         header="Header title CardRadio"
-        color="secondary"
+        color="primary"
         state="disabled"
         RadioPosition="right"
         topRadioPosition={false}

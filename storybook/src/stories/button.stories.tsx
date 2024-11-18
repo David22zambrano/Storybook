@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeProvider, Button, IconButton, Typography, Stack } from "@mui/material";
+import { ThemeProvider, Button, IconButton, Typography, Box } from "@mui/material";
 import { Delete, Person } from "@mui/icons-material";
 import { SincoTheme } from "../Theme";
 import "./Generales";
@@ -38,25 +38,25 @@ const meta: Meta<typeof Button> = {
       control: "radio",
       options: ["small", "medium", "large"],
     },
-    variant:{
-      description:"	La variante a utilizar.",
-      control:"radio",
-      options:["text","outlined","contained"]
+    variant: {
+      description: "	La variante a utilizar.",
+      control: "radio",
+      options: ["text", "outlined", "contained"]
     },
     disabled: {
-      description:"Si `true`, el componente está deshabilitado.",
+      description: "Si `true`, el componente está deshabilitado.",
       control: "boolean",
     },
     children: {
-      description:"	El contenido del componente.",
+      description: "	El contenido del componente.",
       control: "text",
     },
     endIcon: {
-      description:"Elemento colocado después de los `children`.",
+      description: "Elemento colocado después de los `children`.",
       control: "boolean",
     },
     startIcon: {
-      description:"Elemento colocado delante de los `children`.",
+      description: "Elemento colocado delante de los `children`.",
       control: "boolean",
     },
   },
@@ -76,7 +76,7 @@ export const ButtonStorie: Story = {
     endIcon: false,
     disabled: false,
   },
-  render: ({ size, variant, startIcon, endIcon, children, disabled,color }) => (
+  render: ({ size, variant, startIcon, endIcon, children, disabled, color }) => (
     <Button
       variant={variant}
       size={size}
@@ -93,18 +93,18 @@ export const ButtonWhitIcon: Story = {
   name: "Button witdh icons",
   render: () => (
     <>
-    <Typography >Button size: small | medium | large </Typography>
-    <Stack>
-    <Button size="small" variant="contained" startIcon={<Delete />}>
-        Button Icon
-      </Button>
-      <Button size="medium" variant="contained" startIcon={<Delete />}>
-        Button Icon
-      </Button>
-      <Button size="large" variant="contained" startIcon={<Delete />}>
-        Button  Icon delete
-      </Button>
-    </Stack>
+      <Typography >Button size: small | medium | large </Typography>
+      <Box>
+        <Button size="small" variant="contained" startIcon={<Delete />}>
+          Button Icon
+        </Button>
+        <Button size="medium" variant="contained" startIcon={<Delete />}>
+          Button Icon
+        </Button>
+        <Button size="large" variant="contained" startIcon={<Delete />}>
+          Button  Icon delete
+        </Button>
+      </Box>
 
     </>
   ),
